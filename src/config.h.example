@@ -1,0 +1,6 @@
+#define MQTT_HOST "mqtt"
+#define MQTT_PORT 1883
+#define MQTT_TOPIC "ble/received"
+#define WIFI_SSID "MyWifiNetwork"
+#define WIFI_PASSWORD "mypassword"
+#define WATCHDOG_TIMEOUT 180000
