@@ -46,8 +46,7 @@ class MyAdvertisedDeviceCallbacks: public BLEAdvertisedDeviceCallbacks {
     StaticJsonDocument<512> doc;
     doc["millis"] = millis();
     doc["station"] = station;
-    std::string address = advertisedDevice.getAddress().toString().c_str();
-    doc["address"] = address;
+    doc["address"] = advertisedDevice.getAddress().toString();
     doc["payload"] = hexlify(advertisedDevice.getPayload(), advertisedDevice.getPayloadLength());
     if (advertisedDevice.haveRSSI()) {
       doc["rssi"] = advertisedDevice.getRSSI();
