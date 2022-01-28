@@ -16,6 +16,7 @@ PubSubClient mqtt(client);
 BLEScan* scanner;
 String station;
 char clientid[20];
+char hostname[64];
 
 const char mqtt_host[] = MQTT_HOST;
 int mqtt_port = MQTT_PORT;
@@ -79,6 +80,7 @@ void scan_complete(BLEScanResults results) {
 
 void setup() {
   snprintf(clientid, sizeof(clientid), "esp%" PRIx64, ESP.getEfuseMac());
+  snprintf(hostname, sizeof(hostname), "ble-receiver-%" PRIx64, ESP.getEfuseMac());
 
   Serial.begin(115200);
   Serial.println();
@@ -86,6 +88,8 @@ void setup() {
   Serial.print(" ");
   Serial.println(clientid);
 
+  WiFi.config(INADDR_NONE, INADDR_NONE, INADDR_NONE, INADDR_NONE);
+  WiFi.setHostname(hostname);
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   WiFi.setAutoConnect(true);
   WiFi.setAutoReconnect(true);
