@@ -86,7 +86,7 @@ void setup() {
   Serial.println();
   Serial.print(ESP.getSketchMD5());
   Serial.print(" ");
-  Serial.println(clientid);
+  Serial.println(hostname);
 
   WiFi.config(INADDR_NONE, INADDR_NONE, INADDR_NONE, INADDR_NONE);
   WiFi.setHostname(hostname);
