@@ -101,7 +101,7 @@ void setup() {
   station = BLEDevice::getAddress().toString().c_str();
 
   scanner = BLEDevice::getScan();
-  scanner->setAdvertisedDeviceCallbacks(new MyAdvertisedDeviceCallbacks(), true);
+  scanner->setAdvertisedDeviceCallbacks(new MyAdvertisedDeviceCallbacks(), false);
   scanner->setActiveScan(false);
   scanner->setInterval(100);
   scanner->setWindow(99);
